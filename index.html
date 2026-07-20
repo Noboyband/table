@@ -258,6 +258,51 @@
             margin: 20px 0;
         }
 
+        /* ปุ่มดูแผนผังที่นั่ง */
+        .map-btn {
+            background: #4CAF50;
+            padding: 10px 20px;
+        }
+
+        .map-btn:hover {
+            background: #388E3C;
+        }
+
+        /* Popup รูปแผนผัง */
+        .image-modal-content {
+            background: white;
+            padding: 15px;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            position: relative;
+            max-width: 95vw;
+            max-height: 92vh;
+            overflow: auto;
+            animation: slideUp 0.3s ease;
+        }
+
+        .image-modal-content img {
+            display: block;
+            max-width: 100%;
+            height: auto;
+            border-radius: 6px;
+        }
+
+        .image-modal-title {
+            font-weight: bold;
+            color: #333;
+            font-size: 16px;
+            margin: 0 50px 12px 0;
+            text-align: left;
+        }
+
+        .image-modal-hint {
+            color: #999;
+            font-size: 12px;
+            text-align: center;
+            margin-top: 10px;
+        }
+
         /* Go to Top Button */
         .go-to-top {
             position: fixed;
@@ -297,6 +342,9 @@
     <div class="search-container" id="searchContainer">
         <input type="text" id="search" placeholder="พิมพ์ชื่อเต็นท์...">
         <button onclick="search()">🔍 ค้นหา</button>
+        <div>
+            <button class="map-btn" onclick="openSeatMap()">🗺️ ดูแผนผังที่นั่ง</button>
+        </div>
     </div>
     
     <div class="left-section" id="layout"><div class="row"><div class="row-title">แถว 1 - พี่บอม</div><div class="booths"><div class="booth" data-row="แถว 1 - พี่บอม" data-pos="1" data-name="โตโน่รถบ้านพระรามสอง (2)">โตโน่รถบ้านพระรามสอง (2)</div><div class="booth" data-row="แถว 1 - พี่บอม" data-pos="2" data-name="โต ออโต้คาร์">โต ออโต้คาร์</div><div class="booth" data-row="แถว 1 - พี่บอม" data-pos="3" data-name="จุรีภรณ์ ZH - ธนบุรี">จุรีภรณ์ ZH - ธนบุรี</div><div class="booth" data-row="แถว 1 - พี่บอม" data-pos="4" data-name="ต้น-ตาล ยูสคาร์">ต้น-ตาล ยูสคาร์</div><div class="booth" data-row="แถว 1 - พี่บอม" data-pos="5" data-name="4D (2)">4D (2)</div><div class="booth" data-row="แถว 1 - พี่บอม" data-pos="6" data-name="แตงโม คาร์ (2)">แตงโม คาร์ (2)</div><div class="booth" data-row="แถว 1 - พี่บอม" data-pos="7" data-name="สถานีรถสวย">สถานีรถสวย</div><div class="booth" data-row="แถว 1 - พี่บอม" data-pos="8" data-name="The W Intertrade">The W Intertrade</div><div class="booth highlight" data-row="แถว 1 - พี่บอม" data-pos="9" data-name="บอยออโต้กรุ๊ป (2)">บอยออโต้กรุ๊ป (2)</div><div class="booth" data-row="แถว 1 - พี่บอม" data-pos="10" data-name="นริศรา ZH - รัชดา">นริศรา ZH - รัชดา</div><div class="booth" data-row="แถว 1 - พี่บอม" data-pos="11" data-name="สุพรรษา - TTB">สุพรรษา - TTB</div><div class="booth" data-row="แถว 1 - พี่บอม" data-pos="12" data-name="ทีอาร์คาร์ (3)">ทีอาร์คาร์ (3)</div><div class="booth" data-row="แถว 1 - พี่บอม" data-pos="13" data-name="เพชรยนต์ (3)">เพชรยนต์ (3)</div><div class="booth" data-row="แถว 1 - พี่บอม" data-pos="14" data-name="เฮงเฮง เต็นท์รถ (2)">เฮงเฮง เต็นท์รถ (2)</div><div class="booth" data-row="แถว 1 - พี่บอม" data-pos="15" data-name="แจ็คยูสคาร์ (2)">แจ็คยูสคาร์ (2)</div><div class="booth" data-row="แถว 1 - พี่บอม" data-pos="16" data-name="สรณะ ZH - นครราชสีมา">สรณะ ZH - นครราชสีมา</div><div class="booth" data-row="แถว 1 - พี่บอม" data-pos="17" data-name="ธนบดี ZH - อยุธยา">ธนบดี ZH - อยุธยา</div><div class="booth" data-row="แถว 1 - พี่บอม" data-pos="18" data-name="ไมค์ กู๊ดคาร์999 (2)">ไมค์ กู๊ดคาร์999 (2)</div></div></div><div class="row"><div class="row-title">แถว 2 - แคร์</div><div class="booths"><div class="booth" data-row="แถว 2 - แคร์" data-pos="1" data-name="แสงอรุณ ออโต้คาร์ (2)">แสงอรุณ ออโต้คาร์ (2)</div><div class="booth" data-row="แถว 2 - แคร์" data-pos="2" data-name="สุรศักย์ อาปตาคม TTB">สุรศักย์ อาปตาคม TTB</div><div class="booth" data-row="แถว 2 - แคร์" data-pos="3" data-name="ทีอาร์คาร์ (3)">ทีอาร์คาร์ (3)</div><div class="booth" data-row="แถว 2 - แคร์" data-pos="4" data-name="ดีที่สุด คาร์แอนด์เซอร์วิส (2)">ดีที่สุด คาร์แอนด์เซอร์วิส (2)</div><div class="booth" data-row="แถว 2 - แคร์" data-pos="5" data-name="กิตติ กู๊ดคาร์ (2)">กิตติ กู๊ดคาร์ (2)</div><div class="booth" data-row="แถว 2 - แคร์" data-pos="6" data-name="แชมป์ ออโต้ ชัวร์">แชมป์ ออโต้ ชัวร์</div><div class="booth" data-row="แถว 2 - แคร์" data-pos="7" data-name="เอ็มเค มอเตอร์ เทรด">เอ็มเค มอเตอร์ เทรด</div><div class="booth" data-row="แถว 2 - แคร์" data-pos="8" data-name="แพนด้า สปีด (3)">แพนด้า สปีด (3)</div><div class="booth" data-row="แถว 2 - แคร์" data-pos="9" data-name="NL Group (3)">NL Group (3)</div><div class="booth" data-row="แถว 2 - แคร์" data-pos="10" data-name="พูลยศ ชูกลิ่นอ่อน TTB">พูลยศ ชูกลิ่นอ่อน TTB</div><div class="booth" data-row="แถว 2 - แคร์" data-pos="11" data-name="พัฒพงษ์ ZH - บางนา">พัฒพงษ์ ZH - บางนา</div><div class="booth" data-row="แถว 2 - แคร์" data-pos="12" data-name="รถบ้านมือสอง Unicorn2Car">รถบ้านมือสอง Unicorn2Car</div><div class="booth" data-row="แถว 2 - แคร์" data-pos="13" data-name="เต้นท์ 28 (2)">เต้นท์ 28 (2)</div><div class="booth" data-row="แถว 2 - แคร์" data-pos="14" data-name="อำนวย ออโต้คาร์ (2)">อำนวย ออโต้คาร์ (2)</div><div class="booth" data-row="แถว 2 - แคร์" data-pos="15" data-name="พิพัฒน์ คาร์เซ็นเตอร์ (2)">พิพัฒน์ คาร์เซ็นเตอร์ (2)</div><div class="booth" data-row="แถว 2 - แคร์" data-pos="16" data-name="มานัส ZH - งามวงศ์วาน">มานัส ZH - งามวงศ์วาน</div><div class="booth" data-row="แถว 2 - แคร์" data-pos="17" data-name="ดิฐวัฒน์ สิทธิเวช TTB">ดิฐวัฒน์ สิทธิเวช TTB</div><div class="booth" data-row="แถว 2 - แคร์" data-pos="18" data-name="ปอนด์รถสวย (2)">ปอนด์รถสวย (2)</div><div class="booth" data-row="แถว 2 - แคร์" data-pos="19" data-name="วู๊ดดี้ 959 กู๊ดคาร์ (2)">วู๊ดดี้ 959 กู๊ดคาร์ (2)</div></div></div><div class="row"><div class="row-title">แถว 3 - พี่เกด</div><div class="booths"><div class="booth" data-row="แถว 3 - พี่เกด" data-pos="1" data-name="คุณวิสุทธิ์ เหมพรรณไพเราะ นายกสมาคม">คุณวิสุทธิ์ เหมพรรณไพเราะ นายกสมาคม</div><div class="booth" data-row="แถว 3 - พี่เกด" data-pos="2" data-name="The Exclusive">The Exclusive</div><div class="booth" data-row="แถว 3 - พี่เกด" data-pos="3" data-name="คุณสุวิทย์ ชอบประดู่ รองนายกสมาคมฯ">คุณสุวิทย์ ชอบประดู่ รองนายกสมาคมฯ</div><div class="booth" data-row="แถว 3 - พี่เกด" data-pos="4" data-name="คุณรังสรรค์ สฤษดิ์เวชวรกุล รองนายกสมาคมฯ">คุณรังสรรค์ สฤษดิ์เวชวรกุล รองนายกสมาคมฯ</div><div class="booth" data-row="แถว 3 - พี่เกด" data-pos="5" data-name="คุณวสันตฤดู ชวศุภกุล คณะกรรมการสมาคมฯ">คุณวสันตฤดู ชวศุภกุล คณะกรรมการสมาคมฯ</div><div class="booth" data-row="แถว 3 - พี่เกด" data-pos="6" data-name="ฐากร ปิยะพันธ์ TTB">ฐากร ปิยะพันธ์ TTB</div><div class="booth" data-row="แถว 3 - พี่เกด" data-pos="7" data-name="เพชรยนต์ (3)">เพชรยนต์ (3)</div><div class="booth" data-row="แถว 3 - พี่เกด" data-pos="8" data-name="โรจนะ ออโต้ คาร์2 (2)">โรจนะ ออโต้ คาร์2 (2)</div><div class="booth" data-row="แถว 3 - พี่เกด" data-pos="9" data-name="Exchange Center">Exchange Center</div><div class="booth" data-row="แถว 3 - พี่เกด" data-pos="10" data-name="ทีจี ออโต้คาร์ (2)">ทีจี ออโต้คาร์ (2)</div><div class="booth" data-row="แถว 3 - พี่เกด" data-pos="11" data-name="มาวิน ZH - ระยอง">มาวิน ZH - ระยอง</div><div class="booth" data-row="แถว 3 - พี่เกด" data-pos="12" data-name="โน๊ต แอนด์ นัท ออโต้คาร์">โน๊ต แอนด์ นัท ออโต้คาร์</div><div class="booth" data-row="แถว 3 - พี่เกด" data-pos="13" data-name="CAR POWER">CAR POWER</div><div class="booth" data-row="แถว 3 - พี่เกด" data-pos="14" data-name="อัมโฮมคาร์ (2)">อัมโฮมคาร์ (2)</div><div class="booth" data-row="แถว 3 - พี่เกด" data-pos="15" data-name="อนุรักษ์ วัฒนาเสรีกุล TTB">อนุรักษ์ วัฒนาเสรีกุล TTB</div><div class="booth" data-row="แถว 3 - พี่เกด" data-pos="16" data-name="จรัญรุ่งเรืองกิจ (2)">จรัญรุ่งเรืองกิจ (2)</div><div class="booth" data-row="แถว 3 - พี่เกด" data-pos="17" data-name="รถมือสอง เอสซีซี มอเตอร์ สระแก้ว (2)">รถมือสอง เอสซีซี มอเตอร์ สระแก้ว (2)</div><div class="booth" data-row="แถว 3 - พี่เกด" data-pos="18" data-name="สยามคาร์ 304 (2)">สยามคาร์ 304 (2)</div><div class="booth" data-row="แถว 3 - พี่เกด" data-pos="19" data-name="เบนซ์คาร์ เซ็นเตอร์ (2)">เบนซ์คาร์ เซ็นเตอร์ (2)</div><div class="booth" data-row="แถว 3 - พี่เกด" data-pos="20" data-name="ปิยะนันท์ ZH - สระบุรี">ปิยะนันท์ ZH - สระบุรี</div><div class="booth" data-row="แถว 3 - พี่เกด" data-pos="21" data-name="X Home Car">X Home Car</div></div></div><div class="row"><div class="row-title">แถว 4 - พี่ทีน</div><div class="booths"><div class="booth" data-row="แถว 4 - พี่ทีน" data-pos="1" data-name="ชัชฤทธิ์ ตั้งเถกิงเกียรติ์ TTB">ชัชฤทธิ์ ตั้งเถกิงเกียรติ์ TTB</div><div class="booth" data-row="แถว 4 - พี่ทีน" data-pos="2" data-name="CarsX Group (2)">CarsX Group (2)</div><div class="booth" data-row="แถว 4 - พี่ทีน" data-pos="3" data-name="NP ยนตรกิจ">NP ยนตรกิจ</div><div class="booth" data-row="แถว 4 - พี่ทีน" data-pos="4" data-name="NL Group (3)">NL Group (3)</div><div class="booth" data-row="แถว 4 - พี่ทีน" data-pos="5" data-name="พรรษิษฐ์ พูนพิพัฒน์ TTB">พรรษิษฐ์ พูนพิพัฒน์ TTB</div><div class="booth" data-row="แถว 4 - พี่ทีน" data-pos="6" data-name="เพอร์เฟคคาร์ รถมือสอง กรุงเทพ (2)">เพอร์เฟคคาร์ รถมือสอง กรุงเทพ (2)</div><div class="booth" data-row="แถว 4 - พี่ทีน" data-pos="7" data-name="BB Smart Car (2)">BB Smart Car (2)</div><div class="booth" data-row="แถว 4 - พี่ทีน" data-pos="8" data-name="สมยง คาร์เซ็นเตอร์ (2)">สมยง คาร์เซ็นเตอร์ (2)</div><div class="booth" data-row="แถว 4 - พี่ทีน" data-pos="9" data-name="ชัชเชษฐ บำเพ็ญทาน TTB">ชัชเชษฐ บำเพ็ญทาน TTB</div><div class="booth" data-row="แถว 4 - พี่ทีน" data-pos="10" data-name="แม็กกู๊ดคาร์ (2)">แม็กกู๊ดคาร์ (2)</div><div class="booth" data-row="แถว 4 - พี่ทีน" data-pos="11" data-name="กาฬสินธุ์ง่วนเชียง (2)">กาฬสินธุ์ง่วนเชียง (2)</div><div class="booth" data-row="แถว 4 - พี่ทีน" data-pos="12" data-name="เกรียงศักดิ์ ZH - นครสวรรค์">เกรียงศักดิ์ ZH - นครสวรรค์</div><div class="booth" data-row="แถว 4 - พี่ทีน" data-pos="13" data-name="สมเด็จง่วนเชียง (2)">สมเด็จง่วนเชียง (2)</div><div class="booth" data-row="แถว 4 - พี่ทีน" data-pos="14" data-name="ซีโฮม คาร์เซ็นเตอร์">ซีโฮม คาร์เซ็นเตอร์</div><div class="booth" data-row="แถว 4 - พี่ทีน" data-pos="15" data-name="ปองสิน ZH - พัทยา">ปองสิน ZH - พัทยา</div><div class="booth" data-row="แถว 4 - พี่ทีน" data-pos="16" data-name="อ๊อกเล็ตธ์ ออโต้ (2)">อ๊อกเล็ตธ์ ออโต้ (2)</div><div class="booth" data-row="แถว 4 - พี่ทีน" data-pos="17" data-name="ประสงค์ ZH - นครศรี">ประสงค์ ZH - นครศรี</div><div class="booth" data-row="แถว 4 - พี่ทีน" data-pos="18" data-name="โตรถดี (2)">โตรถดี (2)</div><div class="booth" data-row="แถว 4 - พี่ทีน" data-pos="19" data-name="สุพจน์มอเตอร์เซลล์ (2)">สุพจน์มอเตอร์เซลล์ (2)</div></div></div><div class="row"><div class="row-title">แถว 5 - ยิก</div><div class="booths"><div class="booth" data-row="แถว 5 - ยิก" data-pos="1" data-name="นพพร จันทบูรณ์ TTB">นพพร จันทบูรณ์ TTB</div><div class="booth" data-row="แถว 5 - ยิก" data-pos="2" data-name="ยอดยานยนต์5 (2)">ยอดยานยนต์5 (2)</div><div class="booth highlight" data-row="แถว 5 - ยิก" data-pos="3" data-name="บอยรถบ้าน (2)">บอยรถบ้าน (2)</div><div class="booth" data-row="แถว 5 - ยิก" data-pos="4" data-name="เสรีไทยกรุ๊ป (2)">เสรีไทยกรุ๊ป (2)</div><div class="booth" data-row="แถว 5 - ยิก" data-pos="5" data-name="อภิสิทธิ์ ZH - สุราษฎร์">อภิสิทธิ์ ZH - สุราษฎร์</div><div class="booth" data-row="แถว 5 - ยิก" data-pos="6" data-name="ประเสริฐผลยูสคาร์ (2)">ประเสริฐผลยูสคาร์ (2)</div><div class="booth" data-row="แถว 5 - ยิก" data-pos="7" data-name="ซาฟารีคาร์เซ็นเตอร์ (2)">ซาฟารีคาร์เซ็นเตอร์ (2)</div><div class="booth" data-row="แถว 5 - ยิก" data-pos="8" data-name="กำธน ดิสระมุณี TTB">กำธน ดิสระมุณี TTB</div><div class="booth" data-row="แถว 5 - ยิก" data-pos="9" data-name="อิฮซานกู๊ดคาร์ (2)">อิฮซานกู๊ดคาร์ (2)</div><div class="booth" data-row="แถว 5 - ยิก" data-pos="10" data-name="บางมดยูสคาร์ 2 (2)">บางมดยูสคาร์ 2 (2)</div><div class="booth" data-row="แถว 5 - ยิก" data-pos="11" data-name="ชัยยุทธ ZH - หาดใหญ่">ชัยยุทธ ZH - หาดใหญ่</div><div class="booth" data-row="แถว 5 - ยิก" data-pos="12" data-name="SC AUTO HATYAI (2)">SC AUTO HATYAI (2)</div><div class="booth" data-row="แถว 5 - ยิก" data-pos="13" data-name="ศรีรุ่งคาร์เซ็นเตอร์ (2)">ศรีรุ่งคาร์เซ็นเตอร์ (2)</div><div class="booth" data-row="แถว 5 - ยิก" data-pos="14" data-name="วัฒนาศิริ ZH - อุบล">วัฒนาศิริ ZH - อุบล</div><div class="booth" data-row="แถว 5 - ยิก" data-pos="15" data-name="เต็นท์มังกร (2)">เต็นท์มังกร (2)</div><div class="booth" data-row="แถว 5 - ยิก" data-pos="16" data-name="ประเสริฐผลสกลนคร (2)">ประเสริฐผลสกลนคร (2)</div><div class="booth" data-row="แถว 5 - ยิก" data-pos="17" data-name="ศิวะ ZH - อุดรธานี">ศิวะ ZH - อุดรธานี</div><div class="booth" data-row="แถว 5 - ยิก" data-pos="18" data-name="อาระยะยนตรกิจ (2)">อาระยะยนตรกิจ (2)</div></div></div><div class="row"><div class="row-title">แถว 6 - ฝน</div><div class="booths"><div class="booth" data-row="แถว 6 - ฝน" data-pos="1" data-name="เอ.เค.คาร์ ICAR Chiangmai">เอ.เค.คาร์ ICAR Chiangmai</div><div class="booth" data-row="แถว 6 - ฝน" data-pos="2" data-name="เอ พลัส คาร์">เอ พลัส คาร์</div><div class="booth" data-row="แถว 6 - ฝน" data-pos="3" data-name="สามเหลี่ยมออโต้ (2)">สามเหลี่ยมออโต้ (2)</div><div class="booth" data-row="แถว 6 - ฝน" data-pos="4" data-name="นงนุช เตชะทองสุข TTB">นงนุช เตชะทองสุข TTB</div><div class="booth" data-row="แถว 6 - ฝน" data-pos="5" data-name="ศิริพรรณ์ ปรุงสิน TTB">ศิริพรรณ์ ปรุงสิน TTB</div><div class="booth" data-row="แถว 6 - ฝน" data-pos="6" data-name="ฐิติรัตน์ ZH - เชียงใหม่">ฐิติรัตน์ ZH - เชียงใหม่</div><div class="booth" data-row="แถว 6 - ฝน" data-pos="7" data-name="ศิริพรธุรกิจยนต์ (2)">ศิริพรธุรกิจยนต์ (2)</div><div class="booth" data-row="แถว 6 - ฝน" data-pos="8" data-name="สันติ ZH - ขอนแก่น">สันติ ZH - ขอนแก่น</div><div class="booth" data-row="แถว 6 - ฝน" data-pos="9" data-name="ออยรถบ้านมือสอง (2)">ออยรถบ้านมือสอง (2)</div><div class="booth" data-row="แถว 6 - ฝน" data-pos="10" data-name="นำพล ZH - นครปฐม">นำพล ZH - นครปฐม</div><div class="booth" data-row="แถว 6 - ฝน" data-pos="11" data-name="กิจรุ่งโรจน์เจริญยนต์ (2)">กิจรุ่งโรจน์เจริญยนต์ (2)</div><div class="booth" data-row="แถว 6 - ฝน" data-pos="12" data-name="เฮ้าส์ ออฟ คาร์ ภูเก็ต (2)">เฮ้าส์ ออฟ คาร์ ภูเก็ต (2)</div><div class="booth" data-row="แถว 6 - ฝน" data-pos="13" data-name="อภิชาต ZH - ภูเก็ต">อภิชาต ZH - ภูเก็ต</div><div class="booth" data-row="แถว 6 - ฝน" data-pos="14" data-name="อาร์แอนด์โปร ออโต้ (2)">อาร์แอนด์โปร ออโต้ (2)</div><div class="booth" data-row="แถว 6 - ฝน" data-pos="15" data-name="กิจรุ่งโรจน์ธุรกิจ (2)">กิจรุ่งโรจน์ธุรกิจ (2)</div><div class="booth" data-row="แถว 6 - ฝน" data-pos="16" data-name="ขุนเดชยนตรการ">ขุนเดชยนตรการ</div><div class="booth" data-row="แถว 6 - ฝน" data-pos="17" data-name="โอเค ออโต้เซลส์ (2)">โอเค ออโต้เซลส์ (2)</div><div class="booth" data-row="แถว 6 - ฝน" data-pos="18" data-name="ธนวัฒน์ ZH - พิษณุโลก">ธนวัฒน์ ZH - พิษณุโลก</div></div></div></div>
@@ -323,6 +371,16 @@
                     (คลิกแต่ละรายการเพื่อดูรายละเอียด)
                 </div>
             </div>
+    </div>
+
+    <!-- Popup รูปแผนผังที่นั่ง -->
+    <div class="modal" id="seatMapModal">
+        <div class="image-modal-content">
+            <button class="close-btn" onclick="closeSeatMap()">&times;</button>
+            <div class="image-modal-title">🗺️ แผนผังที่นั่ง</div>
+            <img src="IMG_5801.jpeg" alt="แผนผังที่นั่ง">
+            <div class="image-modal-hint">(คลิกนอกรูป หรือกด Esc เพื่อปิด)</div>
+        </div>
     </div>
 
     <!-- Go to Top Button -->
@@ -617,6 +675,15 @@
             modal.classList.remove('show');
         }
 
+        // เปิด/ปิด Popup แผนผังที่นั่ง
+        function openSeatMap() {
+            document.getElementById('seatMapModal').classList.add('show');
+        }
+
+        function closeSeatMap() {
+            document.getElementById('seatMapModal').classList.remove('show');
+        }
+
         // Go to Top
         function goToTop() {
             document.getElementById('searchContainer').scrollIntoView({ behavior: 'smooth' });
@@ -636,6 +703,21 @@
         document.getElementById('resultModal').addEventListener('click', (e) => {
             if (e.target === document.getElementById('resultModal')) {
                 closeModal();
+            }
+        });
+
+        // ปิด Popup แผนผัง เมื่อคลิกนอกรูป
+        document.getElementById('seatMapModal').addEventListener('click', (e) => {
+            if (e.target === document.getElementById('seatMapModal')) {
+                closeSeatMap();
+            }
+        });
+
+        // ปิด Modal ทั้งหมดด้วยปุ่ม Esc
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeModal();
+                closeSeatMap();
             }
         });
 
