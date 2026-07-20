@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- saved from url=(0064)file:///C:/Users/noboyband/Downloads/tent_search_complete_2.html -->
+<!-- saved from url=(0047)file:///C:/Users/noboyband/Downloads/index.html -->
 <html lang="th"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -486,21 +486,30 @@
                 return;
             }
             
-            let found = false;
+            let foundResults = [];
             for (const [row, booths] of Object.entries(data)) {
                 booths.forEach(booth => {
                     const boothEl = document.querySelector(`[data-name="${booth.name}"]`);
                     
                     if (booth.name.toLowerCase().includes(term)) {
                         boothEl.classList.add('highlight');
-                        showPopup(booth.name, row, booth.pos);
+                        foundResults.push({
+                            name: booth.name,
+                            row: row,
+                            pos: booth.pos
+                        });
                         boothEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-                        found = true;
                     }
                 });
             }
             
-            if (!found) {
+            if (foundResults.length > 0) {
+                if (foundResults.length === 1) {
+                    showPopup(foundResults[0].name, foundResults[0].row, foundResults[0].pos);
+                } else {
+                    showMultipleResults(foundResults);
+                }
+            } else {
                 showNotFoundPopup(term);
             }
         }
@@ -524,6 +533,40 @@
                 <div class="modal-detail">
                     <div class="detail-label">📍 ตำแหน่งที่นั่ง</div>
                     <div class="detail-value">${row} - ตำแหน่งที่ ${pos}</div>
+                </div>
+            `;
+            
+            modal.classList.add('show');
+        }
+
+        // แสดง Popup เมื่อเจอหลายรายการ
+        function showMultipleResults(results) {
+            const modal = document.getElementById('resultModal');
+            const modalContent = document.getElementById('modalContent');
+            
+            let listHTML = '<div style="text-align: left; max-height: 400px; overflow-y: auto;">';
+            results.forEach((result, index) => {
+                const posLabel = ['แรก', 'ที่สอง', 'ที่สาม', 'ที่สี่', 'ที่ห้า', 'ที่หก', 'ที่เจ็ด', 'ที่แปด', 'ที่เก้า', 'ที่สิบ', 
+                                 'ที่สิบเอ็ด', 'ที่สิบสอง', 'ที่สิบสาม', 'ที่สิบสี่', 'ที่สิบห้า', 'ที่สิบหก', 'ที่สิบเจ็ด', 'ที่สิบแปด', 'ที่สิบเก้า', 'ที่ยี่สิบ', 'ที่ยี่สิบเอ็ด'];
+                const posText = posLabel[parseInt(result.pos) - 1] || `ตำแหน่ง ${result.pos}`;
+                
+                listHTML += `
+                    <div style="background: #f9f9f9; padding: 12px; margin: 8px 0; border-left: 4px solid #667eea; border-radius: 4px; cursor: pointer;" onclick="showPopup('${result.name.replace(/'/g, "\\'")}', '${result.row}', '${result.pos}')">
+                        <div style="font-weight: bold; color: #333; margin-bottom: 5px;">${result.name}</div>
+                        <div style="color: #667eea; font-size: 13px;">📍 ${result.row} - ตำแหน่งที่ ${result.pos}</div>
+                    </div>
+                `;
+            });
+            listHTML += '</div>';
+            
+            modalContent.innerHTML = `
+                <button class="close-btn" onclick="closeModal()">&times;</button>
+                <div class="checkmark">✓</div>
+                <div class="modal-title">ค้นหาเจอแล้ว</div>
+                <div style="color: #333; font-size: 16px; margin: 15px 0; font-weight: bold;">พบ ${results.length} รายการ</div>
+                ${listHTML}
+                <div style="color: #999; font-size: 12px; margin-top: 15px; text-align: center;">
+                    (คลิกแต่ละรายการเพื่อดูรายละเอียด)
                 </div>
             `;
             
